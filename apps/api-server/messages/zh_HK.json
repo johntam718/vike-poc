@@ -1,0 +1,7 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "username": "用戶名稱",
+  "homepage": "主頁",
+  "app_name": "應用程式名稱",
+  "app_description": "應用程式描述"
+}

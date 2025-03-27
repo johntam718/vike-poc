@@ -1,0 +1,7 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "username": "Username",
+  "homepage": "Home",
+  "app_name": "App name",
+  "app_description": "Sports all in one place"
+}

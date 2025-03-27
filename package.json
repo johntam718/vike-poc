@@ -1,0 +1,27 @@
+{
+  "name": "sport-play",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm run -r --parallel --aggregate-output dev",
+    "dev:api": "pnpm run --filter @sport-play/api dev",
+    "dev:api-server": "pnpm run --filter @sport-play/api-server dev",
+    "dev:badminton": "pnpm run --filter @sport-play/badminton dev",
+    "dev:email": "pnpm run --filter @sport-play/email dev:email",
+    "build": "pnpm run -r build",
+    "test": "pnpm run -r --parallel test",
+    "lint": "pnpm run -r --parallel lint",
+    "deploy": "pnpm build && pnpm run -r deploy",
+    "db:docker:down": "pnpm run --filter @sport-play/database db:docker:down",
+    "db:docker:up": "pnpm run --filter @sport-play/database db:docker:up",
+    "db:push": "pnpm run --filter @sport-play/database db:push",
+    "db:generate": "pnpm run --filter @sport-play/database db:generate",
+    "db:studio": "pnpm run --filter @sport-play/database db:studio",
+    "email:sendEmail": "pnpm run --filter @sport-play/email test:sendEmail"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.6.1"
+}
