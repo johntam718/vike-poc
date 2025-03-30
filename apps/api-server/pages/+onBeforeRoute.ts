@@ -39,7 +39,7 @@ function extractLocale(url: Url) {
 
   // console.log({ locale, urlLogical })
 
-  // Follow example from vike i18n example not working
+  // Follow example from vike i18n example not working (https://github.com/vikejs/vike/tree/main/examples/i18n)
   const path = pathname.split('/')
 
   let locale
@@ -58,4 +58,5 @@ function extractLocale(url: Url) {
 
 // use urlLogical occur error, use urlPathnameWithoutLocale instead for now.
   return { locale, urlLogical: urlPathnameWithoutLocale }
+  // return { locale, urlLogical }
 }
