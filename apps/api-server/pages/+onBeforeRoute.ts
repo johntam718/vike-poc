@@ -39,7 +39,7 @@ function extractLocale(url: Url) {
 
   // console.log({ locale, urlLogical })
 
-  // Follow example
+  // Follow example from vike i18n example not working
   const path = pathname.split('/')
 
   let locale
@@ -54,8 +54,8 @@ function extractLocale(url: Url) {
     urlPathnameWithoutLocale = pathname
   }
 
-  const urlLogical = modifyUrl(url.href, { pathname: urlPathnameWithoutLocale })
+  // const urlLogical = modifyUrl(url.href, { pathname: urlPathnameWithoutLocale })
 
-
-  return { locale, urlLogical }
+// use urlLogical occur error, use urlPathnameWithoutLocale instead for now.
+  return { locale, urlLogical: urlPathnameWithoutLocale }
 }
