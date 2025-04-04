@@ -5,7 +5,7 @@ import type { PageContext, Url } from 'vike/types'
 
 export function onBeforeRoute(pageContext: PageContext) {
   const { urlLogical, locale } = extractLocale(pageContext.urlParsed)
-  console.log({ urlLogical, locale })
+  // console.log({ urlLogical, locale })
   return {
     pageContext: {
       // Make locale available as pageContext.locale
@@ -33,11 +33,8 @@ function extractLocale(url: Url) {
   // const pathnameWithoutLocale = pathname.replace(`/${locale}`, "")
   // console.log({ pathnameWithoutLocale })
 
-  // // Reconstruct full URL
-  // // Cause Error: The onBeforeRoute() hook defined by /pages/+onBeforeRoute.ts returned { pageContext: { urlLogical } } but urlLogical is 'http://localhost:3000/' but it should start with '/'
-  // const urlLogical = modifyUrl(url.href, { pathname: pathnameWithoutLocale })
 
-  // console.log({ locale, urlLogical })
+
 
   // Follow example from vike i18n example not working (https://github.com/vikejs/vike/tree/main/examples/i18n)
   const path = pathname.split('/')
@@ -55,8 +52,5 @@ function extractLocale(url: Url) {
   }
 
   // const urlLogical = modifyUrl(url.href, { pathname: urlPathnameWithoutLocale })
-
-// use urlLogical occur error, use urlPathnameWithoutLocale instead for now.
   return { locale, urlLogical: urlPathnameWithoutLocale }
-  // return { locale, urlLogical }
 }

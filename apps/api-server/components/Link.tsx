@@ -1,23 +1,47 @@
 import { cn } from "@/lib/utils";
-import { Locale } from "@/paraglide/runtime";
+import { baseLocale, Locale } from "@/paraglide/runtime";
 import React from "react";
 import { usePageContext } from "vike-react/usePageContext";
 
 export type LinkProps = React.ComponentProps<"a"> & {
   href: string;
   locale?: Locale;
+  activeClassName?: string | false;
 };
 
-export function Link({ href, locale, className, children, ...props }: LinkProps) {
-  const pageContext = usePageContext();
-  const { urlPathname } = pageContext;
-  if (locale && locale !== pageContext.locale) {
-    href = `/${locale}${href}`;
+export function Link({
+  href,
+  locale,
+  className,
+  activeClassName = "text-black",
+  ...props }: LinkProps) {
+  const pageContext = usePageContext()
+  const { urlPathname } = pageContext
+
+  // Handle locale logic
+  locale = locale ?? pageContext.locale
+  let localizedHref = href
+  if (locale !== baseLocale) {
+    localizedHref = '/' + locale + href
   }
-  const isActive = href === "/" ? urlPathname === href : urlPathname.startsWith(href);
+
+  // Handle active link detection
+  // Normalize current path by removing locale prefix if present
+  let normalizedPath = urlPathname
+  if (locale !== baseLocale && urlPathname.startsWith('/' + locale)) {
+    normalizedPath = urlPathname.substring(('/' + locale).length) || '/'
+  }
+
+  // Check if the link is active
+  const isActive = href === '/'
+    ? normalizedPath === '/'
+    : normalizedPath.startsWith(href)
+
   return (
-    <a href={href} className={cn(className, isActive && 'is-active')} {...props}>
-      {children}
-    </a >
-  );
+    <a
+      href={localizedHref}
+      className={cn(className, { [String(activeClassName)]: isActive })}
+      {...props}
+    />
+  )
 }

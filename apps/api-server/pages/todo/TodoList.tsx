@@ -1,3 +1,4 @@
+import { Footer } from "@/components/footer";
 import React, { useState } from "react";
 
 export function TodoList({ initialTodoItems }: { initialTodoItems: { text: string }[] }) {
@@ -39,6 +40,7 @@ export function TodoList({ initialTodoItems }: { initialTodoItems: { text: strin
           <button type="submit">Add to-do</button>
         </form>
       </div>
+      <Footer />
     </>
   );
 }

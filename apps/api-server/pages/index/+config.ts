@@ -10,10 +10,6 @@ export default {
   title: m.app_name(),
   description: m.app_description(),
 
-  prerender: {
-    partial: false,
-  },
-  // ssr: true,
 
   extends: vikeReact,
 } satisfies Config;

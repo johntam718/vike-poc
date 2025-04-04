@@ -2,7 +2,6 @@ import vikeReact from "vike-react/config";
 import type { Config } from "vike/types";
 import Layout from "../layouts/LayoutDefault.jsx";
 import { m } from "@/paraglide/messages.js";
-import { getLocale } from "@/paraglide/runtime.js";
 
 // Default config (can be overridden by pages)
 // https://vike.dev/config

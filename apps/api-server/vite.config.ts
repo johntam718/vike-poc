@@ -14,7 +14,7 @@ export default defineConfig({
       project: './project.inlang',
       outdir: './paraglide',
       disableAsyncLocalStorage: true,
-      strategy: ['url', 'cookie', 'preferredLanguage', 'baseLocale'],
+      strategy: ['url', 'baseLocale'],
     }),
     vike(),
     tailwindcss(),
